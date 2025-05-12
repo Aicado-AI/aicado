@@ -14,9 +14,10 @@ window.addEventListener('message', function (event) {
             var searchParams = iframeSrc.searchParams;
             var sValue = searchParams.get('s');
             var tValue = searchParams.get('t');
+            var audiValue = searchParams.get('audi');
             var slValue = iframes[i].src.split('go.aicado.ai/')[1]?.split('?')[0];
 
-            if ((slValue === event.data.slParameter) || (sValue === event.data.sParameter && tValue === event.data.tParameter)) {
+            if ((slValue === event.data.slParameter) || (sValue === event.data.sParameter && tValue === event.data.tParameter) || (audiValue === event.data.audiParameter) ) {
                 iframes[i].style.height = event.data.frameHeight + 'px';
                 break;
             }
@@ -40,9 +41,10 @@ window.addEventListener('message', function (event) {
             var searchParams = iframeSrc.searchParams;
             var sValue = searchParams.get('s');
             var tValue = searchParams.get('t');
+            var audiValue = searchParams.get('audi');
             var slValue = iframes[i].src.split('go.aicado.ai/')[1]?.split('?')[0];
 
-            if ((slValue === event.data.slParameter) || (sValue === event.data.sParameter && tValue === event.data.tParameter)) {
+            if ((slValue === event.data.slParameter) || (sValue === event.data.sParameter && tValue === event.data.tParameter) || (audiValue === event.data.audiParameter) ) {
                 var iframeRect = iframes[i].getBoundingClientRect();
                 totalOffset = iframeRect.top + event.data.top + window.pageYOffset;
                 break;

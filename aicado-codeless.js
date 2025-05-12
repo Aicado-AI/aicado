@@ -3,9 +3,11 @@ var searchParams = currentUrl.searchParams;
 
 var sParam = searchParams.get('s');
 var tParam = searchParams.get('t');
+var audiParam = searchParams.get('audi');
+var slParam = searchParams.get('sl');
 
 function checkHeightChange() {
-    var el = document.getElementById('aicadoContainerPrimary');
+    var el = document.getElementById('aicadoMainContainer');
 
     if (el) {
         var currentHeight = el.scrollHeight;
@@ -13,6 +15,8 @@ function checkHeightChange() {
             iframeSrc: window.location.href,
             sParameter: sParam,
             tParameter: tParam,
+            audiParameter: audiParam,
+            slParameter: slParam,
             action: 'aicadoResize',
             frameHeight: currentHeight
         }, '*');
@@ -33,7 +37,7 @@ function pushHeight() {
 
 
 
-    var observedElement = document.getElementById('aicadoContainerPrimary');
+    var observedElement = document.getElementById('aicadoPageContainer');
     if (observedElement) {
         var resizeObserver = new ResizeObserver(entries => {
             for (let entry of entries) {
@@ -42,6 +46,8 @@ function pushHeight() {
                     iframeSrc: window.location.href,
                     sParameter: sParam,
                     tParameter: tParam,
+                    audiParameter: audiParam,
+                    slParameter: slParam,
                     action: 'aicadoResize',
                     frameHeight: newHeight
                 }, '*');
@@ -77,6 +83,8 @@ function pushHeight() {
                     iframeSrc: window.location.href,
                     sParameter: sParam,
                     tParameter: tParam,
+                    audiParameter: audiParam,
+                    slParameter: slParam,
                     action: 'scrollToOutput',
                     top: topPosition
                 }, '*');
