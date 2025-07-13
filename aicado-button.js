@@ -63,6 +63,9 @@
         const iframe = document.createElement('iframe');
         iframe.src             = src;
         iframe.allowFullscreen = true;
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('scrolling', 'no');
+        iframe.setAttribute('allow', 'clipboard-read; clipboard-write; microphone; camera');
         iframe.style.width     = '100%';
         iframe.style.height    = '100%';
         // Remove spinner once iframe content has loaded
@@ -85,4 +88,3 @@
       el.replaceWith(btn);
     });
   })();
-  
