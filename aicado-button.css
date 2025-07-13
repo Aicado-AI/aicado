@@ -1,0 +1,82 @@
+/* overlay: covers full screen and centers the modal */
+.aicadoEmbedBtn-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+  }
+  
+  /* modal container */
+  .aicadoEmbedBtn-modal {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    height: 90%;
+    background: #fff;
+    border-radius: 6px;
+    overflow: auto;
+  }
+  
+  /* iframe: fills container and is scrollable */
+  .aicadoEmbedBtn-modal iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow: auto;
+  }
+  
+  /* close button: fixed position on top right of overlay */
+  .aicadoEmbedBtn-close {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 10001;
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.5em;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  
+  /* trigger button styles */
+  .aicado-button {
+    background-color: var(--mw-bg, #007bff);
+    color:            var(--mw-color, #fff);
+    font-size:        var(--mw-font-size, 14px);
+    font-family:      var(--mw-font-family, sans-serif);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  .aicado-button:hover {
+    background-color: var(--mw-hover-bg, #0056b3);
+  }
+  
+  /* spinner: shows while iframe is loading */
+  .aicadoEmbedBtn-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border: 4px solid rgba(0,0,0,0.1);
+    border-top:   4px solid rgba(0,0,0,0.6);
+    border-radius: 50%;
+    animation: aicadoEmbedBtn-spin 1s linear infinite;
+    z-index: 10002;
+  }
+  @keyframes aicadoEmbedBtn-spin {
+    to { transform: rotate(360deg); }
+  }
